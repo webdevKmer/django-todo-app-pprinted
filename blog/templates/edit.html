@@ -2,21 +2,21 @@
 
 {% load widget_tweaks %}
 
-{% block title %}Home{% endblock title %}
+{% block title %}Edit{% endblock title %}
 
 {% block content %}
 <div class="row">
 	<div class="col-lg-4 col-lg-offset-4" id="content">
-		<h2>WHAT DO YOU WANT TO DO TODAY?</h2>		
-		<form class="container-sm" action="{% url 'add' %}" method="POST" role="form">
+		<h2>EDIT Todo</h2>		
+		<form action="{% url 'edit' todo.id %}" method="POST" role="form">
 			{% csrf_token %}
-			<div class="form-group col-10">
+			<div class="form-group">
 				<div class="input-group">
-				  {% render_field form.text placeholder="Enter a Todo..." class="form-control" %}
-				  <span class="input-group-btn">
-					  <button href="{% url 'add' %}" type="submit" class="btn btn-default" id="add-btn">ADD</button>
-				  </span>
+					<span class="input-group-btn">
+						<button href="{% url 'add' %}" type="submit" class="btn btn-default" id="add-btn">ADD</button>
+					</span>
 				</div>
+				{% render_field form.text placeholder="Enter a Todo..." class="form-control" %}
 			</div>
 		</form>
 
